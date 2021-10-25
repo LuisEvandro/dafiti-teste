@@ -1,0 +1,18 @@
+.container {
+  text-align: center;
+  margin-top: 5rem;
+
+  h1,
+  span {
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  span {
+    font-size: 30px;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+}

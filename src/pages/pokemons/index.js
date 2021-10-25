@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router";
 // import { AppContext } from "../../contexts/appContext";
 import styles from "./styles.module.scss"
 
@@ -9,6 +10,7 @@ export default function Pokemons(){
     const [ loading, setLoading ] = useState(true)
     const [ pokemon, setPokemon ] = useState([])
     let { pokemonName } = useParams();
+    let history = useHistory();
 
     
     const getPokemon = async (name) => {
@@ -39,6 +41,10 @@ export default function Pokemons(){
         await getPokemon(search)
     }
 
+    const goToHome = () => {
+        history.push('/')
+    }
+
     useEffect(async () => {
         await getPokemon(pokemonName)
     }, [pokemonName])
@@ -50,7 +56,7 @@ export default function Pokemons(){
                 <div className={styles.headerPokemon}>
                     <div className={styles.searchBox}>
                         <div className={styles.logoBox}>
-                            <img src="/logo.png" alt="Logo pokémon" title="Logo pokémon" />
+                            <img src="/logo.png" alt="Logo pokémon" title="Logo pokémon" onClick={goToHome} />
                         </div>
 
                         <div className={styles.inputDiv}>

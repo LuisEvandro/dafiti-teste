@@ -20,7 +20,7 @@ export default function Home(){
     const searchPokemon = () => {
         history.push(`/search/${search}`);
     }
-
+    
 
     return (
         <div className="container">
